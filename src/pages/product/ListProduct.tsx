@@ -2,68 +2,71 @@ import { useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEdit } from 'react-icons/bi';
 import { FiMoreHorizontal } from 'react-icons/fi';
-import Modal from 'react-modal';
+import Swal from 'sweetalert2';
+import Modal from '../../components/shared/Modal';
 import ProductOne from '../../images/product/product-01.png';
+import AddProduct from './AddProduct';
 import ProductDetails from './ProductDetails';
-import './modal.css';
 
 const ListProduct = () => {
-  const customStyles = {
-    content: {
-      top: '100%',
-      left: '60%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      position: 'relative',
-      maxWidth: '600px',
-      overflow: 'visible',
-      overflowY: 'scroll',
-    },
-  };
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isProductUpdate, setIsProductUpdate] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-  }
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const handleOpenModal = () => {
+    setIsOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
+
+  const handleProductUpdateModalOpen = () => {
+    setIsProductUpdate(true);
+  };
+  const handleProductUpdateModalClose = () => {
+    setIsProductUpdate(false);
+  };
+
+  const deleteAlart = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+      }
+    });
+  };
 
   return (
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-      <div id="main">
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <button
-            className="absolute -top-2  bg-danger text-white w-6 h-6 rounded-full -right-2"
-            onClick={closeModal}
-            style={{ boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }}
-          >
-            X
-          </button>
-          <div>
-            <ProductDetails />
-          </div>
-        </Modal>
-      </div>
       <div className="py-6 px-4 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold text-black dark:text-white">
           Top Products
         </h4>
       </div>
-
+      {/*product details modal  */}
+      <div>
+        {isOpenModal && (
+          <Modal
+            handleCloseModal={handleCloseModal}
+            component={<ProductDetails />}
+          />
+        )}
+      </div>
+      {/*product update modal  */}
+      <div>
+        {isProductUpdate && (
+          <Modal
+            handleCloseModal={handleProductUpdateModalClose}
+            component={<AddProduct />}
+          />
+        )}
+      </div>
       <div className="grid grid-cols-9 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-2 flex items-center justify-center">
           <p className="font-medium">Product Name</p>
@@ -106,16 +109,19 @@ const ListProduct = () => {
           <p className="text-sm text-black dark:text-white">22</p>
         </div>
         <div className="col-span-1 flex items-center justify-center">
-          <button onClick={openModal} className="text-[20px]">
+          <button onClick={handleOpenModal} className="text-[20px]">
             <FiMoreHorizontal />
           </button>
         </div>
         <div className="col-span-1 flex items-center justify-center">
           <div className="text-[20px]">
-            <button className="text-success">
+            <button
+              onClick={handleProductUpdateModalOpen}
+              className="text-success"
+            >
               <BiEdit />
             </button>
-            <button className="text-danger">
+            <button onClick={deleteAlart} className="text-danger">
               <AiOutlineDelete />
             </button>
           </div>

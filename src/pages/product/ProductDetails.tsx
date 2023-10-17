@@ -6,7 +6,7 @@ import product4 from '../../images/product/product-04.png';
 const ProductDetails = () => {
   return (
     <div className="max-w-[600px] mx-auto  bg-white rounded-md p-4">
-      <div className="grid grid-cols-2 bg-[#E0FFFF] px-4 py-2 rounded-md gap-2 justify-between border-b-[1.5px] border-stroke">
+      <div className="grid grid-cols-2  px-4 py-2 rounded-md gap-2 justify-between border-b-[1.5px] border-stroke">
         <div className="flex flex-col justify-start">
           <h2 className="font-bold">Product Name:</h2>
           <p>Mens Shirt</p>
@@ -17,7 +17,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 justify-between  border-b-[1.5px] border-stroke bg-[#FFF0F5] px-4 py-2 rounded-md">
+      <div className="grid grid-cols-2 gap-2 justify-between  border-b-[1.5px] border-stroke  px-4 py-2 rounded-md">
         <div className="flex flex-col justify-end justify-self-start text-start ">
           <h2 className="font-bold">Quantity:</h2>
           <p>50</p>
@@ -28,7 +28,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 bg-[#E0FFFF] px-4 py-2 rounded-md justify-between  border-b-[1.5px] border-stroke">
+      <div className="grid grid-cols-2 gap-2  px-4 py-2 rounded-md justify-between  border-b-[1.5px] border-stroke">
         <div className="flex flex-col justify-end justify-self-start text-start ">
           <h2 className="font-bold">Regular Price*:</h2>
           <p>500</p>
@@ -39,7 +39,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 justify-between  border-b-[1.5px] border-stroke bg-[#FFF0F5] px-4 py-2 rounded-md">
+      <div className="grid grid-cols-2 gap-2 justify-between  border-b-[1.5px] border-stroke  px-4 py-2 rounded-md">
         <div className="flex flex-col justify-end justify-self-start text-start ">
           <h2 className="font-bold">Offer Price:</h2>
           <p>500</p>
@@ -50,13 +50,13 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-end bg-[#E0FFFF] px-4 py-2 rounded-md justify-self-start text-start border-b-[1.5px] border-stroke py-2">
+      <div className="flex flex-col justify-end  px-4 py-2 rounded-md justify-self-start text-start border-b-[1.5px] border-stroke py-2">
         <div>
           <h2 className="font-bold">Category:</h2>
           <p>Mens Shirt</p>
         </div>
       </div>
-      <div className="flex justify-between  border-b-[1.5px] border-stroke bg-[#FFF0F5] px-4 py-2 rounded-md">
+      <div className="flex justify-between  border-b-[1.5px] border-stroke  px-4 py-2 rounded-md">
         <div>
           <h2 className="font-bold">Product Details:</h2>
           <p>
@@ -67,7 +67,7 @@ const ProductDetails = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-between  border-b-[1.5px] border-stroke bg-[#E0FFFF] px-4 py-2 rounded-md">
+      <div className="flex justify-between  border-b-[1.5px] border-stroke  px-4 py-2 rounded-md">
         <div>
           <h2 className="font-bold">Delivery Details:</h2>
           <p>
@@ -78,7 +78,7 @@ const ProductDetails = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-between  border-b-[1.5px] border-stroke bg-[#FFF0F5] px-4 py-2 rounded-md">
+      <div className="flex justify-between  border-b-[1.5px] border-stroke  px-4 py-2 rounded-md">
         <div>
           <h2 className="font-bold">Return & Refund Policy:</h2>
           <p>
